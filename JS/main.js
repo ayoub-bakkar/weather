@@ -60,43 +60,52 @@ async function getInfoCountry(country) {
     lastCountry = country;
 
     // Parse the JSON response bodya
+
     let date = await responsev.json();
-    console.log(date);
-    // UI Updates: Remove error styles and display fetched data
-    if (temperature.classList.contains("active")) {
-      temperature.classList.remove("active");
-    }
-    if (temperature.classList.contains("activeEr")) {
-      temperature.classList.remove("activeEr");
-    }
-
-    // Display formatted weather information (Rounded temperature)
-    if (date.weather[0].id >= 200 && date.weather[0].id < 300) {
-      image.src = "image/thunderstorm.png"; // thunderstorm
-    } else if (date.weather[0].id >= 300 && date.weather[0].id < 400) {
-      image.src = "image/drizzle.png"; // drizzle
-    } else if (date.weather[0].id >= 500 && date.weather[0].id < 600) {
-      image.src = "image/rainy.png"; // rainy
-    } else if (date.weather[0].id >= 600 && date.weather[0].id < 700) {
-      image.src = "image/snow.png"; // snow
-    } else if (date.weather[0].id === 800) {
-      image.src = "image/clear-sky.png"; // clear-skybyes
-    } else if (date.weather[0].id === 804) {
-      image.src = "image/overcast-clouds.png"; // overcast-clouds yes
-    } else if (date.weather[0].id > 800 && date.weather[0].id < 804) {
-      image.src = "image/cloud.png"; // clouds
-    } else if (date.weather[0].id >= 700 && date.weather[0].id <= 799) {
-      image.src = "image/atmosphere.png"; //atmosphere
-    }
-
-    temperature.textContent = Math.round(date.main.temp) + "°C";
-    wind.textContent = date.wind.speed;
-    water.textContent = date.main.humidity + "%";
+    uiUpdates()
+    showDate(date.main.temp, date.wind.speed, date.main.humidity);
+    showImage(date.weather[0].id);
   } catch (error) {
     // Handle network errors or server downtime
     image.src = "image/error.jpg";
     console.error(error);
     temperature.classList.add("active");
     temperature.textContent = "Please check your connection!";
+  }
+}
+function uiUpdates() {
+  // UI Updates: Remove error styles and display fetched data
+  if (temperature.classList.contains("active")) {
+    temperature.classList.remove("active");
+  }
+  if (temperature.classList.contains("activeEr")) {
+    temperature.classList.remove("activeEr");
+  }
+}
+// function Show temp & speed wing & humidity water
+function showDate(temp, speedWind, humidityWater) {
+  temperature.textContent = Math.round(temp) + "°C";
+  wind.textContent = speedWind;
+  water.textContent = humidityWater + "%";
+}
+
+// function The image changes depending on the weather conditions.
+function showImage(id) {
+  if (id >= 200 && id < 300) {
+    image.src = "image/thunderstorm.png"; // thunderstorm
+  } else if (id >= 300 && id < 400) {
+    image.src = "image/drizzle.png"; // drizzle
+  } else if (id >= 500 && id < 600) {
+    image.src = "image/rainy.png"; // rainy
+  } else if (id >= 600 && id < 700) {
+    image.src = "image/snow.png"; // snow
+  } else if (id === 800) {
+    image.src = "image/clear-sky.png"; // clear-skybyes
+  } else if (id === 804) {
+    image.src = "image/overcast-clouds.png"; // overcast-clouds yes
+  } else if (id > 800 && id < 804) {
+    image.src = "image/cloud.png"; // clouds
+  } else if (id >= 700 && id <= 799) {
+    image.src = "image/atmosphere.png"; //atmosphere
   }
 }
