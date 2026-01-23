@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      src="https://kit.fontawesome.com/c56a1c185e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="contener">
+      <header>
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        <input
+          value="jordan"
+          type="text"
+          name="city"
+          id="inputValue"
+          placeholder="Enter your country"
+        />
+        <i
+          id="search"
+          class="fa-solid fa-magnifying-glass-location"
+          role="button"
+          aria-label="search"
+        ></i>
+      </header>
+      <div class="countnt">
+        <img src="image/images.jpg" alt="رمز الطّقس" />
+        <p id="temperature">0</p>
+      </div>
+      <footer>
+        <div class="water">
+          <i class="fa-solid fa-water"></i>
+          <span id="water">0</span>
+        </div>
+        <div class="wind">
+          <i class="fa-solid fa-wind"></i>
+          <span id="wind">0</span>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

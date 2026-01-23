@@ -1,0 +1,213 @@
+:root {
+  --background-color: #04263e;
+  --contener-background-color: #ffffff;
+  --font-color: #111217;
+  --accent: #4da6ff; /* stronger blue accent */
+  --border-color: rgba(77, 166, 255, 0.32); /* stronger blue border */
+  --accent-glow: rgba(77, 166, 255, 0.12);
+  --font-all: "Inconsolata", monospace;
+  --radius: 12px;
+  --gap: 1rem;
+  --shadow: 0 10px 30px rgba(2, 10, 22, 0.45);
+  --transition: 0.22s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: var(--background-color);
+  font-family: var(--font-all);
+  color: var(--font-color);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px; /* increased for better readability */
+  line-height: 1.45;
+}
+
+.contener {
+  background-color: var(--contener-background-color);
+  width: clamp(320px, 38vw, 560px);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap);
+  box-shadow: var(--shadow);
+  border: 2px solid var(--border-color);
+  transition: transform var(--transition), box-shadow var(--transition),
+    border-color var(--transition);
+  animation: fadeInUp 420ms ease both;
+}
+
+.contener:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(2, 10, 22, 0.45), 0 6px 24px var(--accent-glow);
+  border-color: rgba(77, 166, 255, 0.46);
+}
+
+.contener header {
+  padding: 6px 4px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.6rem;
+}
+
+.contener header i {
+  color: var(--font-color);
+  opacity: 0.8;
+}
+.contener header input {
+  outline: none;
+  border: none;
+  border-bottom: 1px dashed rgba(2, 10, 22, 0.06);
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 100%;
+  font-size: 1.05rem;
+  background: transparent;
+  color: var(--font-color);
+  padding: 8px 6px;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+.contener header input:focus {
+  box-shadow: 0 8px 28px var(--accent-glow) inset;
+  border-bottom-color: var(--accent);
+}
+.contener header input::placeholder {
+  opacity: 0.6;
+}
+
+#search {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: transform var(--transition), background var(--transition),
+    color var(--transition);
+  color: rgba(0, 0, 0, 0.7);
+}
+#search:hover {
+  transform: translateY(-2px);
+  background: rgba(77, 166, 255, 0.12);
+  color: var(--accent);
+}
+
+.countnt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.4rem;
+  padding-top: 6px;
+}
+
+.countnt p {
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  font-weight: 800;
+  margin: 0;
+  transition: transform 320ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 240ms ease;
+}
+.countnt .active {
+  font-size: 2em;
+}
+.countnt img {
+  max-height: clamp(110px, 20vw, 200px);
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+footer {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 10px;
+}
+
+footer .water,
+footer .wind {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(77, 166, 255, 0.12);
+  color: #04263e;
+  min-width: 100px;
+  justify-content: center;
+  font-weight: 700;
+}
+footer .water i,
+footer .wind i {
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+@media (min-width: 768px) {
+  .contener {
+    width: 420px;
+  }
+  .countnt p {
+    font-size: 3.8rem;
+  }
+  .countnt img {
+    max-height: 170px;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: none;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.99;
+    box-shadow: 0 8px 20px rgba(77, 166, 255, 0.14);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: none;
+  }
+}
+
+.pulse {
+  animation: pulse 480ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .contener,
+  .pulse {
+    animation: none !important;
+    transition: none !important;
+  }
+}
