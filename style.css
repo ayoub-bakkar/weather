@@ -123,6 +123,9 @@ body {
 .countnt .active {
   font-size: 2em;
 }
+.countnt .activeEr{
+  font-size: 14px;
+}
 .countnt img {
   max-height: clamp(110px, 20vw, 200px);
   width: auto;
