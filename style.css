@@ -132,7 +132,10 @@ body {
   object-fit: contain;
   display: block;
 }
-
+.countnt #description {
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
 footer {
   display: flex;
   gap: 0.6rem;

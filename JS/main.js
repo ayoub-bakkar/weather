@@ -1,6 +1,7 @@
 // Import the secure API key from an external configuration file
 import { API_KEY } from "./API.js";
 // Select DOM elements for manipulation
+const description = document.getElementById("description");
 const image = document.querySelector(".imgW");
 const temperature = document.getElementById("temperature");
 const wind = document.getElementById("wind");
@@ -62,7 +63,7 @@ async function getInfoCountry(country) {
     console.log(date);
     uiUpdates();
     showDate(date.main.temp, date.wind.speed, date.main.humidity);
-    showImage(date.weather[0].icon);
+    showImage(date.weather[0].icon, date.weather[0].description);
   } catch (error) {
     // Handle network errors or server downtime
     image.src = "image/error-404.png";
@@ -88,7 +89,8 @@ function showDate(temp, speedWind, humidityWater) {
 }
 
 // function The image changes depending on the weather conditions.
-function showImage(icon) {
+function showImage(icon, des) {
   image.src = `image/${icon}.png`;
+  description.textContent = des;
 }
 getInfoCountry("jordan");
