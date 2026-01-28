@@ -62,7 +62,7 @@ async function getInfoCountry(country) {
     console.log(date);
     uiUpdates();
     showDate(date.main.temp, date.wind.speed, date.main.humidity);
-    showImage(date.weather[0].id, date.weather[0].icon);
+    showImage(date.weather[0].icon);
   } catch (error) {
     // Handle network errors or server downtime
     image.src = "image/error-404.png";
@@ -88,27 +88,7 @@ function showDate(temp, speedWind, humidityWater) {
 }
 
 // function The image changes depending on the weather conditions.
-function showImage(id, icon) {
-  if (id >= 200 && id <= 232) {
-    image.src = `image/${icon}.png`;
-  } else if (id >= 300 && id <= 321) {
-    image.src = `image/${icon}.png`;
-  } else if (id >= 500 && id <= 531) {
-    image.src = `image/${icon}.png`;
-  } else if (id >= 600 && id <= 622) {
-    image.src = `image/${icon}.png`;
-  } else if (id >= 701 && id <= 781) {
-    image.src = `image/${icon}.png`;
-  } else if ((id = 800)) {
-    image.src = `image/${icon}.png`;
-  } else if ((id = 801)) {
-    image.src = `image/${icon}.png`;
-  } else if (id = 802) {
-    image.src = `image/${icon}.png`;
-  } else if (id = 803) {
-    image.src = `image/${icon}.png`;
-  } else if (id = 804) {
-    image.src = `image/${icon}.png`;
-  }
+function showImage(icon) {
+  image.src = `image/${icon}.png`;
 }
 getInfoCountry("jordan");
