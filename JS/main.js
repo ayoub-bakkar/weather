@@ -1,6 +1,5 @@
 // Import the secure API key from an external configuration file
 import { API_KEY } from "./API.js";
-
 // Select DOM elements for manipulation
 const image = document.querySelector(".imgW");
 const temperature = document.getElementById("temperature");
@@ -21,7 +20,7 @@ search.addEventListener("click", () => {
 
   // Input Validation: Check for empty strings or numeric characters
   if (inputValue.trim() === "" || /\d/.test(inputValue)) {
-    image.src = "image/no-results.png";
+    image.src = "image/error-404.png";
     temperature.classList.add("activeEr");
     temperature.textContent =
       "Please enter a valid country or city name (numbers are not allowed).";
@@ -50,7 +49,7 @@ async function getInfoCountry(country) {
     );
     // Check if the respaonse is successful (e.g., handles 404 City Not Found)
     if (!responsev.ok) {
-      image.src = "image/no-results.png";
+      image.src = "image/error-404.png";
       temperature.textContent = "Oops!! 404";
       wind.textContent = ""; // Clear old wind data
       water.textContent = ""; // Clear old humidity data
@@ -58,16 +57,15 @@ async function getInfoCountry(country) {
     }
     // Make sure you don't apply for the same country/city twice.
     lastCountry = country;
-
     // Parse the JSON response bodya
-
     let date = await responsev.json();
-    uiUpdates()
+    console.log(date);
+    uiUpdates();
     showDate(date.main.temp, date.wind.speed, date.main.humidity);
-    showImage(date.weather[0].id);
+    showImage(date.weather[0].id, date.weather[0].icon);
   } catch (error) {
     // Handle network errors or server downtime
-    image.src = "image/error.jpg";
+    image.src = "image/error-404.png";
     console.error(error);
     temperature.classList.add("active");
     temperature.textContent = "Please check your connection!";
@@ -90,22 +88,27 @@ function showDate(temp, speedWind, humidityWater) {
 }
 
 // function The image changes depending on the weather conditions.
-function showImage(id) {
-  if (id >= 200 && id < 300) {
-    image.src = "image/thunderstorm.png"; // thunderstorm
-  } else if (id >= 300 && id < 400) {
-    image.src = "image/drizzle.png"; // drizzle
-  } else if (id >= 500 && id < 600) {
-    image.src = "image/rainy.png"; // rainy
-  } else if (id >= 600 && id < 700) {
-    image.src = "image/snow.png"; // snow
-  } else if (id === 800) {
-    image.src = "image/clear-sky.png"; // clear-skybyes
-  } else if (id === 804) {
-    image.src = "image/overcast-clouds.png"; // overcast-clouds yes
-  } else if (id > 800 && id < 804) {
-    image.src = "image/cloud.png"; // clouds
-  } else if (id >= 700 && id <= 799) {
-    image.src = "image/atmosphere.png"; //atmosphere
+function showImage(id, icon) {
+  if (id >= 200 && id <= 232) {
+    image.src = `image/${icon}.png`;
+  } else if (id >= 300 && id <= 321) {
+    image.src = `image/${icon}.png`;
+  } else if (id >= 500 && id <= 531) {
+    image.src = `image/${icon}.png`;
+  } else if (id >= 600 && id <= 622) {
+    image.src = `image/${icon}.png`;
+  } else if (id >= 701 && id <= 781) {
+    image.src = `image/${icon}.png`;
+  } else if ((id = 800)) {
+    image.src = `image/${icon}.png`;
+  } else if ((id = 801)) {
+    image.src = `image/${icon}.png`;
+  } else if (id = 802) {
+    image.src = `image/${icon}.png`;
+  } else if (id = 803) {
+    image.src = `image/${icon}.png`;
+  } else if (id = 804) {
+    image.src = `image/${icon}.png`;
   }
 }
+getInfoCountry("jordan");
