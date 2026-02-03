@@ -45,17 +45,20 @@ body {
   gap: var(--gap);
   box-shadow: var(--shadow);
   border: 2px solid var(--border-color);
-  transition: transform var(--transition), box-shadow var(--transition),
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
     border-color var(--transition);
   animation: fadeInUp 420ms ease both;
 }
 
 .contener:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(2, 10, 22, 0.45), 0 6px 24px var(--accent-glow);
+  box-shadow:
+    0 18px 40px rgba(2, 10, 22, 0.45),
+    0 6px 24px var(--accent-glow);
   border-color: rgba(77, 166, 255, 0.46);
 }
-
 .contener header {
   padding: 6px 4px;
   font-size: 1.1rem;
@@ -63,6 +66,21 @@ body {
   align-items: center;
   width: 100%;
   gap: 0.6rem;
+}
+.contener header .language-switcher {
+  position: relative;
+  bottom: 3.5px;
+  cursor: pointer;
+}
+.contener header .language-switcher:hover {
+  transition: 0.3s;
+  transform: translateY(-3.4px);
+  color: var(--accent);
+}
+.contener header .language-switcher:active {
+  transition: 0.5s;
+  transform: translateY(0.5px);
+  color: var(--accent);
 }
 
 .contener header i {
@@ -80,7 +98,9 @@ body {
   background: transparent;
   color: var(--font-color);
   padding: 8px 6px;
-  transition: box-shadow var(--transition), border-color var(--transition);
+  transition:
+    box-shadow var(--transition),
+    border-color var(--transition);
 }
 .contener header input:focus {
   box-shadow: 0 8px 28px var(--accent-glow) inset;
@@ -89,12 +109,17 @@ body {
 .contener header input::placeholder {
   opacity: 0.6;
 }
-
+.contener header #lang {
+  font-weight: bolder;
+  font-size: 32px;
+}
 #search {
   cursor: pointer;
   padding: 8px;
   border-radius: 8px;
-  transition: transform var(--transition), background var(--transition),
+  transition:
+    transform var(--transition),
+    background var(--transition),
     color var(--transition);
   color: rgba(0, 0, 0, 0.7);
 }
@@ -118,13 +143,16 @@ body {
   font-size: clamp(2.6rem, 7vw, 4.6rem);
   font-weight: 800;
   margin: 0;
-  transition: transform 320ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 240ms ease;
+  transition:
+    transform 320ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    opacity 240ms ease;
 }
 .countnt .active {
   font-size: 2em;
 }
-.countnt .activeEr{
+.countnt .activeEr {
   font-size: 14px;
+  color: red;
 }
 .countnt img {
   max-height: clamp(110px, 20vw, 200px);
@@ -207,13 +235,4 @@ footer .wind i {
 
 .pulse {
   animation: pulse 480ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
-}
-
-/* Respect reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .contener,
-  .pulse {
-    animation: none !important;
-    transition: none !important;
-  }
 }
