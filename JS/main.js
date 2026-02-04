@@ -75,7 +75,6 @@ async function getInfoCountry(country, lang) {
     lastCountry = country;
     // Parse the JSON response bodya
     let data = await response.json();
-    console.log(data);
     renderWeatherDetails(data);
   } catch (error) {
     // Handle network errors or server downtime
@@ -90,7 +89,6 @@ function renderWeatherDetails(data) {
   // Reset UI state to prevent style conflicts before showing new results
   temperature.classList.remove("activeEr");
   temperature.classList.remove("active");
-  console.log(data);
   temperature.textContent = Math.round(data.main.temp) + "c" + "\u00B0";
   description.textContent = data.weather[0].description;
   water.textContent = Math.round(data.main.humidity) + "%";
