@@ -65,7 +65,7 @@ async function getInfoCountry(country, lang) {
     // Check if the respaonse is successful (e.g., handles 404 City Not Found)
     if (!response.ok) {
       image.src = "image/error-404.png";
-      temperature.textContent = "Oops!! 404";
+      temperature.textContent = "Oops!";
       wind.textContent = ""; // Clear old wind data
       water.textContent = ""; // Clear old humidity data
       description.textContent = ""; // Clear old description data
