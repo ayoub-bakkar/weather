@@ -1,0 +1,11 @@
+/*The font*/
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Sora:wght@100..800&display=swap");
+
+:root {
+  --main-bg-color: #000000;
+  --color-time: #4D4B53;
+  --main-font: "Lexend", sans-serif;
+  --color-text: #ffffff;
+  --color-number: #00d4ff;
+}
+
