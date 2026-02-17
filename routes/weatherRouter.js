@@ -6,5 +6,9 @@ const { getCountry } = require(
   path.join(__dirname, "..", "controllers", "weatherControllers.js"),
 );
 
-router.post("/", getCountry);
+const { notFound } = require(
+  path.join(__dirname, "..", "middleware", "notFound.js"),
+);
+
+router.post("/", notFound, getCountry);
 module.exports = router;
