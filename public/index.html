@@ -1,47 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script
-      src="https://kit.fontawesome.com/c56a1c185e.js"
-      crossorigin="anonymous"
-    ></script>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>weather</title>
-  </head>
-  <body>
-    <div class="animated-background"></div>
-    <header>
-      <div class="title">
-        <i id="icon-weather-title" class="fa-regular fa-cloud icon-bounce"></i>
-        <span class="title-text">weather</span>
-      </div>
-      <div class="time">
-        <span id="time-display">00:00</span> <span class="period">PM</span>
-      </div>
-    </header>
-    <div class="contunt">
-      <form action="" method="post">
-        <div class="search">
-          <input
-            id="search-input"
-            name="country"
-            type="text"
-            placeholder="enter city name..."
-          />
-          <i id="icon-search" class="fa-brands fa-sistrix search-icon"></i>
-          <div class="search-underline"></div>
-        </div>
-      </form>
-      <div class="countryText">
-        <h1 class="country-name" id="country-display">jordan</h1>
-      </div>
-      <div class="temperature">
-        <p class="temperatureNumber" id="temp-display">12°</p>
-        <div class="temp-blur"></div>
-      </div>
-    </div>
-    <script src="script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Weather</title>
+</head>
+<body>
+  <form action="/api/v1/weather" method="post" target="_self">
+    <input type="text" name="country">
+  </form>
+  <script src="app.js" type="module"></script>
+</body>
 </html>

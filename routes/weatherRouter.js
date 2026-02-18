@@ -6,9 +6,9 @@ const { getCountry } = require(
   path.join(__dirname, "..", "controllers", "weatherControllers.js"),
 );
 
-const { notFound } = require(
-  path.join(__dirname, "..", "middleware", "notFound.js"),
+const { validateWeatherInput  } = require(
+  path.join(__dirname, "..", "middleware", "validateWeatherInput.js"),
 );
 
-router.post("/", notFound, getCountry);
+router.post("/api/v1/weather", validateWeatherInput , getCountry);
 module.exports = router;
