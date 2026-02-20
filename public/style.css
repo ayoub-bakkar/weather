@@ -1,8 +1,23 @@
+:root {
+  --bg: #111921;
+  --color-number-and-text: #f1f5f9;
+  --info-label: #94a3aa;
+  --color-icon-search: #8f9db2;
+  --bg-input-search: #18212e;
+  --color-border-input-active: #197fc6;
+  --color-description:#CBD5E1;
+  --color-unit-temp:#197FE6;
+}
 * {
   padding: 0;
   margin: 0;
 }
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: var(--bg);
+}
 header {
+  color: var(--color-number-and-text);
   position: sticky;
   z-index: 100;
   top: 0;
@@ -13,21 +28,43 @@ header {
   align-items: center;
   padding: 7px;
 }
+header .title span{
+  font-weight: 900;
+
+}
+header .title #icon-tilte-weather {
+  padding: 10px 4px;
+  border-radius: 7px;
+  background-color: #197FE6;
+}
 header .search {
   position: relative;
 }
 header .search input {
-  padding: 5px 0;
+  background-color: var(--bg-input-search);
+  padding: 5px 5px;
   padding-left: 30px;
   box-sizing: border-box;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  color: white;
+}
+header .search input:focus {
+  outline: none;
+  transition: 0.6s;
+  border: 1px solid var(--color-border-input-active);
 }
 header .search #icon-search {
   position: absolute;
   left: 5px;
   top: 50%;
   transform: translateY(-50%);
+  color: var(--color-icon-search);
+  font-size: 14px;
 }
 .city {
+  color: var(--color-number-and-text);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -43,9 +80,11 @@ header .search #icon-search {
 .city .info-city .country {
   padding-right: 10px;
   display: inline;
+  color: var(--info-label);
 }
 
 .info-temp {
+  color: var(--color-number-and-text);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -55,7 +94,15 @@ header .search #icon-search {
 .info-temp .temp {
   font-size: 9em;
 }
+.info-temp .unit {
+  color: var(--color-unit-temp);
+  font-size: .5em;
+}
 .info-temp .description {
   font-size: 1.4em;
   text-transform: capitalize;
+  color: var(--color-description);
+}
+.shadow {
+  box-shadow: 0px 15px 200px 121px rgba(18, 33, 53)
 }

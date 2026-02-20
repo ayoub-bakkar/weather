@@ -10,12 +10,25 @@
       src="https://kit.fontawesome.com/c56a1c185e.js"
       crossorigin="anonymous"
     ></script>
+    <!--font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <header>
       <div class="title">
-        <i class="fa-regular fa-cloud"></i>
+        <i id="icon-tilte-weather" class="fa-regular fa-cloud"></i>
         <span>SkyPulse</span>
       </div>
       <div class="search">
@@ -23,7 +36,7 @@
         <input type="text" placeholder="city..." />
       </div>
     </header>
-    <hr>
+    <hr />
 
     <div class="city">
       <div class="info-city">
@@ -37,10 +50,10 @@
     </div>
 
     <div class="info-temp">
-      <h2 class="temp">10</h2>
+      <h2 class="temp">72 <sup class="unit">c</sup></h2>
       <h3 class="description">clear sky</h3>
     </div>
-
+    <div class="shadow"></div>
     <div id="details-container" class="details-grid"></div>
     <script src="ui.js" type="module"></script>
   </body>
