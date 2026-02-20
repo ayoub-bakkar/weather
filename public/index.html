@@ -5,10 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Weather</title>
+    <!--kit icon in fontAwesome-->
+    <script
+      src="https://kit.fontawesome.com/c56a1c185e.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
+
   <body>
-    <input type="text" id="inputvaule"/>
-    <button id="send">send</button>
-    <script src="api.js" type="module"></script>
+    <header>
+      <div class="title">
+        <i class="fa-regular fa-cloud"></i>
+        <span>SkyPulse</span>
+      </div>
+      <div class="search">
+        <i id="icon-search" class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="city..." />
+      </div>
+    </header>
+    <hr>
+
+    <div class="city">
+      <div class="info-city">
+        <h1>irbid</h1>
+        <p class="country">jordan</p>
+        <span>12:45 PM PST</span>
+      </div>
+      <div class="iconWeather">
+        <img src="image/cloud.png" alt="" />
+      </div>
+    </div>
+
+    <div class="info-temp">
+      <h2 class="temp">10</h2>
+      <h3 class="description">clear sky</h3>
+    </div>
+
+    <div id="details-container" class="details-grid"></div>
+    <script src="ui.js" type="module"></script>
   </body>
 </html>
