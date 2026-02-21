@@ -33,7 +33,7 @@
       </div>
       <div class="search">
         <i id="icon-search" class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="city..." />
+        <input id="cityName" type="text" placeholder="city..." />
       </div>
     </header>
     <br>
@@ -44,13 +44,13 @@
         <span>12:45 PM PST</span>
       </div>
       <div class="iconWeather">
-        <img src="image/cloud.png" alt="" />
+        <img src="image/scattered-clouds.png" alt="" />
       </div>
     </div>
 
     <div class="info-temp">
-      <h2 class="temp">72 <sup class="unit">c</sup></h2>
-      <h3 class="description">clear sky</h3>
+      <h2 class="temp">72 <sup class="unit"><span>c</span></sup></h2>
+      <h3 class="description"></h3>
     </div>
     <div class="shadow"></div>
 
@@ -63,7 +63,7 @@
           <span>Feels Like</span>
         </div>
         <div>
-          <h4 id="feels-like" class="degree">68</h4>
+          <h4 data-key="feels_like" class="degree">0</h4>
         </div>
       </div>
       <!--Humidity-->
@@ -73,7 +73,7 @@
           <span>Humidity</span>
         </div>
         <div>
-          <h4 id="humidity" class="degree">68</h4>
+          <h4 data-key="humidity" class="degree">0</h4>
         </div>
       </div>
 
@@ -84,7 +84,7 @@
           <span>Clouds</span>
         </div>
         <div>
-          <h4 id="clouds" class="degree">68</h4>
+          <h4 data-key="clouds" class="degree">0</h4>
         </div>
       </div>
       <!--Visibility-->
@@ -94,7 +94,7 @@
           <span>Visibility</span>
         </div>
         <div>
-          <h4 id="visibility" class="degree">68</h4>
+          <h4 data-key="visibility" class="degree">0</h4>
         </div>
       </div>
       <!--Feels Like-->
@@ -104,10 +104,10 @@
           <span>Wind</span>
         </div>
         <div>
-          <h4 id="wind" class="degree">68</h4>
+          <h4 data-key="speedWind" class="degree">0</h4>
         </div>
       </div>
     </div>
-    <script src="ui.js" type="module"></script>
+    <script src="app.js" type="module"></script>
   </body>
 </html>

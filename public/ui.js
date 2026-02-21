@@ -1,29 +1,35 @@
-const detailsConfig = [
-  {
-    label: "Feels Like",
-    icon: "thermometer.png",
-    key: "feels_like",
-    unit: "°C",
-  },
-  { label: "Humidity", icon: "fa-solid fa-eye", key: "humidity", unit: "%" },
-  { label: "Visibility", icon: "fa-regular fa-eye", key: "visibility", unit: "km" },
-  { label: "Wind Speed", icon: "fa-solid fa-wind", key: "speedWind", unit: "km/h" },
-  { label: "Clouds", icon: "fa-solid fa-cloud", key: "clouds", unit: "%" },
-];
+const infoWeather = document.querySelectorAll("[data-key]");
+const temp = document.querySelector(".temp");
+const description = document.querySelector(".description");
 
-//<i class="fa-solid fa-cloud"></i>
-function renderDetails(res) {
-  const container = document.getElementById("details-container");
+const units = {
+  humidity: "%",
+  speedWind: "km/h",
+  feels_like: "°C",
+  visibility: "km",
+  clouds: "%",
+};
 
-  container.innerHTML = detailsConfig.map(
-    (config) => `
-    <div class="detail-card">
-      <div class="info">
-        <i class="${config.icon}"></i>
-        <span>${config.label}</span>
-        <h4>${res[config.key]}${config.unit}</h4>
-      </div>
-    </div>
-    `,
-  ).join('');
+const renderMainWeather = (main) => {
+  if (main.temp !== undefined) {
+    temp.innerHTML = `${main.temp}<sup class="unit">c</sup>`;
+  }
+  if (main.description !== undefined) {
+    description.textContent = main.description;
+  }
+};
+
+const displayExtraInfo = (extraInfo) => {
+  infoWeather.forEach((el) => {
+    const key = el.dataset.key;
+    if (extraInfo[key] !== undefined) {
+      el.textContent = extraInfo[key];
+      el.textContent += `${units[key]}`;
+    }
+  });
+};
+
+const renderWeatherImage = (image) => {
+    
 }
+export { displayExtraInfo, renderMainWeather, renderWeatherImage };

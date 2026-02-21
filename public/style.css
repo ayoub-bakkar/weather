@@ -67,6 +67,16 @@ header .search #icon-search {
   color: var(--color-icon-search);
   font-size: 14px;
 }
+header .search #icon-search:hover {
+  cursor: pointer;
+  color: var(--color-unit-temp);
+  transition: scale 0.5s ease;
+  scale: 1.1;
+}
+header .search #icon-search:active {
+  transition: scale 0.5s ease;
+  scale: 0.9;
+}
 .city {
   color: var(--color-number-and-text);
   display: flex;
@@ -79,8 +89,7 @@ header .search #icon-search {
 }
 .city .iconWeather img {
   width: 125px;
-  height: 125px
-
+  height: 125px;
 }
 .city .info-city .country {
   padding-right: 10px;
