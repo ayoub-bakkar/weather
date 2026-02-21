@@ -36,8 +36,7 @@
         <input type="text" placeholder="city..." />
       </div>
     </header>
-    <hr />
-
+    <br>
     <div class="city">
       <div class="info-city">
         <h1>irbid</h1>
@@ -54,7 +53,61 @@
       <h3 class="description">clear sky</h3>
     </div>
     <div class="shadow"></div>
-    <div id="details-container" class="details-grid"></div>
+
+    <!--CARDS info weather-->
+    <div id="details-container" class="cards">
+      <!--Feels Like-->
+      <div class="single-card">
+        <div class="titel-card">
+          <i id="icon-info" class="fa-solid fa-temperature-half"></i>
+          <span>Feels Like</span>
+        </div>
+        <div>
+          <h4 id="feels-like" class="degree">68</h4>
+        </div>
+      </div>
+      <!--Humidity-->
+      <div class="single-card">
+        <div class="titel-card">
+          <i id="icon-info" class="fa-solid fa-droplet"></i>
+          <span>Humidity</span>
+        </div>
+        <div>
+          <h4 id="humidity" class="degree">68</h4>
+        </div>
+      </div>
+
+      <!--Clouds-->
+      <div class="single-card">
+        <div class="titel-card">
+          <i id="icon-info" class="fa-solid fa-cloud"></i>
+          <span>Clouds</span>
+        </div>
+        <div>
+          <h4 id="clouds" class="degree">68</h4>
+        </div>
+      </div>
+      <!--Visibility-->
+      <div class="single-card">
+        <div class="titel-card">
+          <i id="icon-info" class="fa-regular fa-eye"></i>
+          <span>Visibility</span>
+        </div>
+        <div>
+          <h4 id="visibility" class="degree">68</h4>
+        </div>
+      </div>
+      <!--Feels Like-->
+      <div class="single-card">
+        <div class="titel-card">
+          <i id="icon-info" class="fa-solid fa-wind"></i>
+          <span>Wind</span>
+        </div>
+        <div>
+          <h4 id="wind" class="degree">68</h4>
+        </div>
+      </div>
+    </div>
     <script src="ui.js" type="module"></script>
   </body>
 </html>
