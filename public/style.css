@@ -77,7 +77,7 @@ header .search #icon-search:active {
   transition: scale 0.5s ease;
   scale: 0.9;
 }
-.city {
+.city-stlye {
   color: var(--color-number-and-text);
   display: flex;
   flex-direction: row;
@@ -87,11 +87,11 @@ header .search #icon-search:active {
   margin: 0 5%;
   width: calc(100% - 10%);
 }
-.city .iconWeather img {
+.city-stlye .iconWeather img {
   width: 125px;
   height: 125px;
 }
-.city .info-city .country {
+.city-stlye .info-city .country {
   padding-right: 10px;
   display: inline;
   color: var(--info-label);

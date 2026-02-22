@@ -1,14 +1,20 @@
 import { sendWeatherData } from "./api.js";
-import { displayExtraInfo, renderMainWeather } from "./ui.js";
+import { updateWeatherUI } from "./ui.js";
 
-const buttonSearche = document.querySelector("#icon-search")
-
+const buttonSearche = document.querySelector("#icon-search");
 const cityName = document.getElementById("cityName");
 
-buttonSearche.addEventListener("click", async (e) => {
-    const city = cityName.value;
-    const response = await sendWeatherData(city);
-    displayExtraInfo(response)
-    renderMainWeather(response)
-    console.log(response)
-})
+async function handleWeatherSearch() {
+  const city = cityName.value;
+  const response = await sendWeatherData(city);
+
+  updateWeatherUI(response);
+  console.log(response);
+}
+
+buttonSearche.addEventListener("click", handleWeatherSearch);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") handleWeatherSearch();
+});
+
+handleWeatherSearch();
