@@ -61,33 +61,34 @@ const displayExtraInfo = (extraInfo) => {
 
 const renderWeatherImage = (weatherConditionCodes) => {
   const id = weatherConditionCodes.id;
-  console.log(id);
-  if (id >= 200 && id <= 232) {
-    image.src = "image/thunderstorm.png";
-  }
-  if (id >= 300 && id <= 321) {
-    image.src = "image/rain.png";
-  }
-  if (id >= 600 && id <= 622) {
-    image.src = "image/snow.png";
-  }
-  if (id == 800) {
-    image.src = "image/clear-sky.png";
-  }
-  if (id >= 701 && id <= 781) {
-    image.src = "image/mist.png";
-  }
-  if (id == 801) {
-    image.src = "image/few-clouds.png";
-  }
-  if (id == 802) {
-    image.src = "image/scattered-clouds.png";
-  }
-  if (id == 803) {
-    image.src = "image/broken-clouds.png";
-  }
-  if (id == 804) {
-    image.src = "image/broken-clouds.png";
+  switch (true) {
+    case id >= 200 && id <= 232:
+      image.src = "image/thunderstorm.png";
+      break;
+    case id >= 300 && id <= 321:
+      image.src = "image/rain.png";
+      break;
+    case id >= 600 && id <= 622:
+      image.src = "image/snow.png";
+      break;
+    case id >= 701 && id <= 781:
+      image.src = "image/mist.png";
+      break;
+    case id == 800:
+      image.src = "image/clear-sky.png";
+      break;
+    case id == 801:
+      image.src = "image/few-clouds.png";
+      break;
+    case id == 802:
+      image.src = "image/scattered-clouds.png";
+      break;
+    case id == 803:
+    case id == 804:
+      image.src = "image/broken-clouds.png";
+      break;
+    default: 
+    image.src = "image/weather.png"
   }
 };
 export { updateWeatherUI };
