@@ -1,5 +1,5 @@
 import { sendWeatherData } from "./api.js";
-import { updateWeatherUI } from "./ui.js";
+import { updateWeatherUI } from "./renderUI.js";
 
 const buttonSearche = document.querySelector("#icon-search");
 const cityName = document.getElementById("cityName");
