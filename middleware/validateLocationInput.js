@@ -3,18 +3,21 @@ exports.validateLocationInput = (req, res, next) => {
 
   if (!locationQuery || typeof locationQuery !== "string") {
     return res.status(400).json({
+      status: 400,
       success: false,
       message: "Please provide a valid city name as text",
     });
   }
   if (locationQuery.trim() === "" || /\d/.test(locationQuery)) {
     return res.status(400).json({
+      status: 400,
       success: false,
       message: "Name of city or city containing a number or empty field",
     });
   }
   if (locationQuery.length < 3 || locationQuery.length >= 100) {
     return res.status(400).json({
+      status: 400,
       success: false,
       message: "A city or city with a very short or very long name",
     });
@@ -22,6 +25,7 @@ exports.validateLocationInput = (req, res, next) => {
   const invalidSymbolsRegex = /[^a-zA-Z\u0621-\u064A\s\-]/;
   if (invalidSymbolsRegex.test(locationQuery.trim())) {
     return res.status(400).json({
+      status: 400,
       success: false,
       message: "Name contains symbols",
     });
