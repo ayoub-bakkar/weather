@@ -1,4 +1,4 @@
-const sendWeatherData = async (cityName) => {
+const fetchWeatherData = async (locationQuery) => {
   try {
     const url = "/api/v1/weather";
     const response = await fetch(url, {
@@ -7,14 +7,15 @@ const sendWeatherData = async (cityName) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        country: cityName,
+        locationQuery
       }),
     });
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.log("API Error:",error);
+    if(!response.ok) throw new Error(`HTTP ${response.status}`);
+    
+    return await response.json();
+  } catch (err) {
+    console.log("fetchWeatherData Error:",err);
     return null
   }
 };
-export {sendWeatherData}
+export {fetchWeatherData}

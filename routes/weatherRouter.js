@@ -2,13 +2,13 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 
-const { getCountry } = require(
+const { fetchWeatherByLocation } = require(
   path.join(__dirname, "..", "controllers", "weatherControllers.js"),
 );
 
-const { validateWeatherInput  } = require(
-  path.join(__dirname, "..", "middleware", "validateWeatherInput.js"),
+const { validateLocationInput  } = require(
+  path.join(__dirname, "..", "middleware", "validateLocationInput.js"),
 );
 
-router.post("/api/v1/weather", validateWeatherInput , getCountry);
+router.post("/api/v1/weather", validateLocationInput , fetchWeatherByLocation);
 module.exports = router;
