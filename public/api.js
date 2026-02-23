@@ -1,3 +1,5 @@
+import { errorHandler } from "./renderUI.js";
+
 const fetchWeatherData = async (locationQuery) => {
   try {
     const url = "/api/v1/weather";
@@ -7,15 +9,21 @@ const fetchWeatherData = async (locationQuery) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        locationQuery
+        locationQuery,
       }),
     });
-    if(!response.ok) throw new Error(`HTTP ${response.status}`);
-    
+    if (!response.ok) {
+      const errorData = await response.json();
+
+      errorHandler(errorData);
+
+      throw new Error(errorData.message || `HTTP ${response.status}`);
+    }
+
     return await response.json();
   } catch (err) {
-    console.log("fetchWeatherData Error:",err);
-    return null
+    console.log("fetchWeatherData Error:", err);
+    return null;
   }
 };
-export {fetchWeatherData}
+export { fetchWeatherData };

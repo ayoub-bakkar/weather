@@ -66,6 +66,7 @@ const renderWeatherIcon = (weatherConditionCodes) => {
       weatherIconEl.src = "image/thunderstorm.png";
       break;
     case id >= 300 && id <= 321:
+    case id >= 500 && id <= 531:
       weatherIconEl.src = "image/rain.png";
       break;
     case id >= 600 && id <= 622:
@@ -81,14 +82,25 @@ const renderWeatherIcon = (weatherConditionCodes) => {
       weatherIconEl.src = "image/few-clouds.png";
       break;
     case id == 802:
-      image.src = "image/scattered-clouds.png";
+      weatherIconEl.src = "image/scattered-clouds.png";
       break;
     case id == 803:
     case id == 804:
       weatherIconEl.src = "image/broken-clouds.png";
       break;
-    default: 
-    weatherIconEl.src = "image/weather.png"
+    default:
+      weatherIconEl.src = "image/weather.png";
   }
 };
-export { updateWeatherUI };
+const errorHandler = (messageErr) => {
+  cityNameEl.textContent = messageErr.message;
+  countryLabelEl.textContent = "";
+  localTimeEl.textContent = "";
+  weatherDescriptionEl.textContent = "0";
+  temperatureEl.textContent = "0";
+  detailElements.forEach((el) => {
+    el.textContent = 0;
+  });
+  weatherIconEl.src = "image/error.png";
+};
+export { updateWeatherUI, errorHandler };
