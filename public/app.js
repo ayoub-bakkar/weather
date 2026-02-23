@@ -13,7 +13,10 @@ async function handleWeatherSearch() {
 
 searchButtonEl.addEventListener("click", handleWeatherSearch);
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") handleWeatherSearch();
+  if (e.key === "Enter") {
+    e.preventDefault();
+    handleWeatherSearch();
+  }
 });
 
 handleWeatherSearch();
